@@ -1,8 +1,8 @@
 import 'dart:io';
 
+import 'package:execise_app/shopping_section/screens/shopping_cart_sceeen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store/screens/shopping_cart_sceeen.dart';
 
 import '../providers/product_provider.dart';
 import '../widgets/all_product_card.dart';
@@ -148,11 +148,11 @@ class _AllProductScreenState extends State<AllProductScreen> {
                     return productData == null
                         ? const Center(child: Text('Loading..'))
                         : AllProductCard(
-                            category: productData[index]['category']['name'],
-                            description: productData[index]['description'],
-                            imgUrl: productData[index]['category']['image'],
-                            title: productData[index]['title'],
-                            price: productData[index]['price'],
+                            category:  "Equipments",
+                            description: "Use full in jym and other Enviroments you can use it in externel or internel envierometns",
+                            imgUrl: "assets/images/shopping_images/dumble2.jpg",
+                            title:"Dumbles",
+                            price:345,
                           );
                   }),
                 ),

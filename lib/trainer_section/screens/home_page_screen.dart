@@ -1,12 +1,12 @@
 import 'dart:math';
+import 'package:execise_app/trainer_section/theme/extention.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_health_care_app/model/doctor_model.dart';
-import 'package:flutter_health_care_app/model/data.dart';
-import 'package:flutter_health_care_app/screens/detail_screen.dart';
-import 'package:flutter_health_care_app/theme/light_color.dart';
-import 'package:flutter_health_care_app/theme/text_styles.dart';
-import 'package:flutter_health_care_app/theme/extention.dart';
-import 'package:flutter_health_care_app/theme/theme.dart';
+
+import '../../model/data.dart';
+import '../../model/doctor_model.dart';
+import '../theme/light_color.dart';
+import '../theme/text_styles.dart';
+import 'detail_screen.dart';
 
 /*
 Title:HomePageScreen
@@ -16,73 +16,43 @@ Created Date: 30 April 2021
 */
 
 class HomePageScreen extends StatefulWidget {
-  HomePageScreen({
-    Key key,
-  }) : super(key: key);
+
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePageScreen> {
-  List<DoctorModel> doctorDataList;
+  late List<DoctorModel> doctorDataList;
   @override
   void initState() {
     doctorDataList = doctorMapList.map((x) => DoctorModel.fromJson(x)).toList();
     super.initState();
   }
 
-  Widget _appBar() {
-    return AppBar(
-      elevation: 0,
-      backgroundColor: Theme.of(context).backgroundColor,
-      leading: Icon(
-        Icons.short_text,
-        size: 30,
-        color: Colors.black,
-      ),
-      actions: <Widget>[
-        Icon(
-          Icons.notifications_none,
-          size: 30,
-          color: LightColor.grey,
-        ),
+  Widget _trainersList() {
+    return ListView(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text("Top Trainers", style: TextStyles.title.bold),
+            IconButton(
+                icon: Icon(
+                  Icons.sort,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                onPressed: () {})
+            // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
+          ],
+        ).hP16,
 
+        getTrainerWidgetList()
       ],
     );
   }
 
-
-
-
-
-
-
-
-  Widget _doctorsList() {
-    return SliverList(
-      delegate: SliverChildListDelegate(
-        [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text("Top Trainers", style: TextStyles.title.bold),
-              IconButton(
-                  icon: Icon(
-                    Icons.sort,
-                    color: Theme.of(context).primaryColor,
-                  ),
-                  onPressed: () {})
-              // .p(12).ripple(() {}, borderRadius: BorderRadius.all(Radius.circular(20))),
-            ],
-          ).hP16,
-          getdoctorWidgetList()
-        ],
-      ),
-    );
-  }
-
-  Widget getdoctorWidgetList() {
+  Widget getTrainerWidgetList() {
     return Column(
         children: doctorDataList.map((x) {
       return _trainerTile(x);
@@ -93,7 +63,7 @@ class _HomePageState extends State<HomePageScreen> {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: <BoxShadow>[
           BoxShadow(
@@ -119,13 +89,13 @@ class _HomePageState extends State<HomePageScreen> {
               width: 55,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: randomColor(),
+                color:Theme.of(context).colorScheme.primary,
               ),
               child: Image.asset(
                 model.image,
-                height: 50,
+                height: 70,
                 width: 50,
-                fit: BoxFit.contain,
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -149,25 +119,18 @@ class _HomePageState extends State<HomePageScreen> {
     );
   }
 
-  Color randomColor() {
-    var random = Random();
-    final colorList = [
-      Theme.of(context).primaryColor,
-    ];
-    var color = colorList[random.nextInt(colorList.length)];
-    return color;
-  }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _appBar(),
-      backgroundColor: Theme.of(context).backgroundColor,
-      body: CustomScrollView(
-        slivers: <Widget>[
-
-          _doctorsList()
-        ],
+    return SafeArea(
+      child: Scaffold(
+        //appBar: _appBar(),
+        backgroundColor: Theme.of(context).colorScheme.background,
+        body: _trainersList(),
       ),
     );
   }

@@ -63,9 +63,11 @@ class _AllProductCardState extends State<AllProductCard> {
               flex: 10,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(18),
-                child: Image(
-                  image: NetworkImage(widget.imgUrl),
-                  fit: BoxFit.fill,
+                child: Image.asset(
+
+                  widget.imgUrl,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
                 ),
               ),
             ),

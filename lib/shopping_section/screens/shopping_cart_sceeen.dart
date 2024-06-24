@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store/providers/product_provider.dart';
-import 'package:store/widgets/custom_buttom.dart';
+
+import '../providers/product_provider.dart';
+import '../widgets/custom_buttom.dart';
+
 
 class ShoppingCarTScreen extends StatefulWidget {
   const ShoppingCarTScreen({Key? key}) : super(key: key);
@@ -50,10 +52,9 @@ class _ShoppingCarTScreenState extends State<ShoppingCarTScreen> {
                               flex: 1,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(8),
-                                child: Image(
+                                child: Image.asset(
+                                      cardItemList[index]['img'],
                                   fit: BoxFit.fill,
-                                  image:
-                                      NetworkImage(cardItemList[index]['img']),
                                   width: 80,
                                   height: 70,
                                 ),

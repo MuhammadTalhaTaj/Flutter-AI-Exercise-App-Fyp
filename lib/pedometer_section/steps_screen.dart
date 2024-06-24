@@ -112,7 +112,7 @@ class StepsScreenState extends State<StepsScreen> {
               Text(
                 _todaySteps,
                 style: TextStyle(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).colorScheme.primary,
                   fontSize: 50,
                   fontWeight: FontWeight.bold,
                 ),

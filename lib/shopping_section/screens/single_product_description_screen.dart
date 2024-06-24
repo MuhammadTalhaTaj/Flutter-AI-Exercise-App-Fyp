@@ -29,9 +29,10 @@ class ProductDescriptionScreen extends StatelessWidget {
                 bottomLeft: Radius.circular(18),
                 bottomRight: Radius.circular(18),
               ),
-              child: Image(
+              child: Image.asset(
+                 imgUrl,
                 width: double.infinity,
-                image: NetworkImage(imgUrl),
+
                 fit: BoxFit.fitWidth,
               ),
             ),

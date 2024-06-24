@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'input_page.dart';
-import 'constants.dart';
+
 
 class BottomButton extends StatelessWidget {
   final String text;
@@ -15,16 +15,22 @@ class BottomButton extends StatelessWidget {
         onTap();
       },
       child: Container(
+
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          color: Theme.of(context).colorScheme.primary,
+
+        ),
         child: Center(
           child: Text(
             text,
-            style: klargeButtonTextStyle,
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
           ),
         ),
-        color: kbottomColor,
-        height: kbottomContainerHeight,
-        margin: EdgeInsets.only(top: 10),
-        padding: EdgeInsets.only(bottom: 20),
+
+        //height: kbottomContainerHeight,
+        margin: EdgeInsets.all(10),
+        padding: EdgeInsets.all(20),
         width: double.infinity,
       ),
     );

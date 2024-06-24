@@ -1,14 +1,13 @@
-import 'dart:ffi';
+
+import 'package:execise_app/bmi_calculator_section/result_page.dart';
+import 'package:execise_app/bmi_calculator_section/icons_buttons.dart';
+
 import 'bottom__button.dart';
-import 'package:bmi_calculator/input_page.dart';
-import 'package:bmi_calculator/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi_calculator/input_page_column_content.dart';
-import 'package:bmi_calculator/input_page_reuseable_card.dart';
-import 'constants.dart';
-import 'package:bmi_calculator/round_icon_button.dart';
 import 'calculator_brain.dart';
+import 'input_page_column_content.dart';
+import 'input_page_reuseable_card.dart';
 
 enum GenderType {
   Male,
@@ -24,8 +23,7 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = kinActiveCardColour;
-  Color femaleCardColor = kinActiveCardColour;
+
   GenderType? selectedGender;
   int height = 180;
   @override
@@ -43,8 +41,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReuseableCard(
                     selectedGender == GenderType.Male
-                        ? kactiveCardColour
-                        : kinActiveCardColour,
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.surface,
                     ReuseableColumn(FontAwesomeIcons.mars, 'MALE'),
                     () {
                       setState(() {
@@ -56,8 +54,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReuseableCard(
                     selectedGender == GenderType.Female
-                        ? kactiveCardColour
-                        : kinActiveCardColour,
+                        ? Theme.of(context).colorScheme.primary
+                        : Theme.of(context).colorScheme.surface,
                     ReuseableColumn(FontAwesomeIcons.venus, 'FEMALE'),
                     () {
                       setState(() {
@@ -71,13 +69,13 @@ class _InputPageState extends State<InputPage> {
           ),
           Expanded(
             child: ReuseableCard(
-              kcolour,
+              Theme.of(context).colorScheme.surface,
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'HEIGHT',
-                    style: klabel_Const_Style,
+                    style: TextStyle(fontSize: 18),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -86,19 +84,19 @@ class _InputPageState extends State<InputPage> {
                     children: [
                       Text(
                         height.toString(),
-                        style: knumberTextStyle,
+                        style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
                       ),
                       Text(
                         'cm',
-                        style: klabel_Const_Style,
+                        style: TextStyle(fontSize: 18),
                       ),
                     ],
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
                       inactiveTrackColor: Color(0xFF8D8E98),
-                      thumbColor: Color(0xFFEB1555),
-                      activeTrackColor: Colors.white,
+                      thumbColor: Theme.of(context).colorScheme.primary,
+                      activeTrackColor: Theme.of(context).colorScheme.secondary,
                       thumbShape: RoundSliderThumbShape(enabledThumbRadius: 15),
                       overlayShape: RoundSliderOverlayShape(overlayRadius: 30),
                       overlayColor: Color(0x1fEB1555),
@@ -127,22 +125,22 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReuseableCard(
-                    kcolour,
+                    Theme.of(context).colorScheme.surface,
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'WEIGHT',
-                          style: klabel_Const_Style,
+                          style: TextStyle( fontSize: 18),
                         ),
                         Text(
                           weight.toString(),
-                          style: knumberTextStyle,
+                          style:TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(FontAwesomeIcons.minus, () {
+                            iconButtons(FontAwesomeIcons.minus, () {
                               setState(() {
                                 weight--;
                               });
@@ -150,7 +148,7 @@ class _InputPageState extends State<InputPage> {
                             SizedBox(
                               width: 10,
                             ),
-                            RoundIconButton(FontAwesomeIcons.plus, () {
+                            iconButtons(FontAwesomeIcons.plus, () {
                               setState(() {
                                 weight++;
                               });
@@ -168,22 +166,22 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReuseableCard(
-                    kcolour,
+                    Theme.of(context).colorScheme.surface,
                     Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           'AGE',
-                          style: klabel_Const_Style,
+                          style: TextStyle( fontSize: 18),
                         ),
                         Text(
                           age.toString(),
-                          style: knumberTextStyle,
+                          style: TextStyle(fontSize: 50, fontWeight: FontWeight.w900),
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(FontAwesomeIcons.minus, () {
+                            iconButtons(FontAwesomeIcons.minus, () {
                               setState(() {
                                 age--;
                               });
@@ -191,7 +189,7 @@ class _InputPageState extends State<InputPage> {
                             SizedBox(
                               width: 10,
                             ),
-                            RoundIconButton(FontAwesomeIcons.plus, () {
+                            iconButtons(FontAwesomeIcons.plus, () {
                               setState(() {
                                 age++;
                               });

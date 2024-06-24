@@ -23,11 +23,11 @@ class CalculatorBrain {
 
   String getInterpretation() {
     if (_bmi! >= 25) {
-      return 'You hava a heigher then normal body weight. Try to exercise more';
+      return 'Your body weight is above the normal range. Consider incorporating regular exercise into your routine to support a healthier lifestyle.';
     } else if (_bmi! >= 18.5) {
-      return 'You have a normal body weight. Good Job!';
+      return 'Congratulations! Your body weight falls within the healthy range.';
     } else {
-      return 'You have lower body weight then normal.You can eat more.';
+      return 'Your body weight is below the normal range. Consider incorporating a nutritious diet to support healthy weight gain.';
     }
   }
 }

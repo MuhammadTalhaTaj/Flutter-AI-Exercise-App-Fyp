@@ -1,3 +1,4 @@
+import 'package:execise_app/components/constants/app_spacer_constants.dart';
 import 'package:flutter/material.dart';
 
 class SaleSlideCard extends StatelessWidget {
@@ -38,6 +39,7 @@ class SaleSlideCard extends StatelessWidget {
                 width: double.infinity,
                 fit: BoxFit.fill,
               )),
+          AppSpacer.p10(),
           Flexible(
             flex: 1,
             child: Column(

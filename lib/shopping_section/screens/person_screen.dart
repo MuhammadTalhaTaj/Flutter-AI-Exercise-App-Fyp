@@ -1,6 +1,7 @@
+import 'package:execise_app/shopping_section/screens/shopping_cart_sceeen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store/screens/shopping_cart_sceeen.dart';
+
 
 import '../providers/product_provider.dart';
 
@@ -67,10 +68,16 @@ class PersonScreen extends StatelessWidget {
         width: double.infinity,
         child: Column(
           children: [
-            CircleAvatar(
-              backgroundColor: Colors.transparent,
-              radius: 40,
-              child: Image(image: AssetImage('images/chair.png')),
+
+            const SizedBox(
+              height: 15,
+            ),
+            Text(
+              'Muhammad Shahzaib Shaheen',
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             const SizedBox(
               height: 15,

@@ -2,8 +2,9 @@ import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_health_care_app/theme/light_color.dart';
-import 'package:flutter_health_care_app/theme/theme.dart';
+
+import '../../theme/light_color.dart';
+import '../../theme/theme.dart';
 
 class ProgressWidget extends StatefulWidget {
   final double totalValue;
@@ -13,14 +14,14 @@ class ProgressWidget extends StatefulWidget {
   final String title;
   final durationTime;
   ProgressWidget({
-    Key key,
-    this.value,
+
+    required this.value,
     this.totalValue = 100,
-    this.activeColor,
-    this.backgroundColor,
-    this.title,
+    required this.activeColor,
+    required this.backgroundColor,
+    required this.title,
     this.durationTime,
-  }) : super(key: key);
+  });
 
   @override
   _ProgressWidgetState createState() => _ProgressWidgetState();
@@ -28,9 +29,9 @@ class ProgressWidget extends StatefulWidget {
 
 class _ProgressWidgetState extends State<ProgressWidget>
     with TickerProviderStateMixin {
-  double progress;
-  Color activeColor;
-  Color backgroundColor;
+  late double progress;
+  late Color activeColor;
+  late Color backgroundColor;
   @override
   void initState() {
     progress = (widget.value * 100) / widget.totalValue;
@@ -50,7 +51,7 @@ class _ProgressWidgetState extends State<ProgressWidget>
     if (backgroundColor == null) {
       backgroundColor = Theme.of(context).disabledColor;
     }
-    final inCurve = ElasticOutCurve(0.38);
+
     return Container(
       height: dimenstion,
       width: dimenstion,

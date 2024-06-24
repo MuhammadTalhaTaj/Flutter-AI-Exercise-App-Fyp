@@ -12,27 +12,27 @@ class DoctorModel {
     String image;
 
     DoctorModel({
-        this.name,
-        this.type,
-        this.description,
-        this.rating,
-        this.goodReviews,
-        this.totalScore,
-        this.satisfaction,
-        this.isfavourite,
-        this.image,
+        required this.name,
+        required this.type,
+        required this.description,
+        required this.rating,
+        required this.goodReviews,
+        required this.totalScore,
+        required this.satisfaction,
+        required this.isfavourite,
+        required this.image,
     });
 
     DoctorModel copyWith({
-        String name,
-        String type,
-        String description,
-        double rating,
-        double goodReviews,
-        double totalScore,
-        double satisfaction,
-        bool isfavourite,
-        String image,
+        required String name,
+        required String type,
+        required String description,
+        required double rating,
+        required double goodReviews,
+        required double totalScore,
+        required double satisfaction,
+        required bool isfavourite,
+        required String image,
     }) => 
         DoctorModel(
             name: name ?? this.name,

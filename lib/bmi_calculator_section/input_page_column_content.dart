@@ -1,5 +1,6 @@
+import 'package:execise_app/components/constants/app_spacer_constants.dart';
 import 'package:flutter/material.dart';
-import 'constants.dart';
+
 
 class ReuseableColumn extends StatelessWidget {
   final IconData icon;
@@ -15,12 +16,10 @@ class ReuseableColumn extends StatelessWidget {
           icon,
           size: 80,
         ),
-        SizedBox(
-          height: 15,
-        ),
+       AppSpacer.p15(),
         Text(
           text,
-          style: klabel_Const_Style,
+          style: TextStyle( fontSize: 18),
         )
       ],
     );

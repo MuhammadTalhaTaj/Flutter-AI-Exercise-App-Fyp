@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
-import 'package:bmi_calculator/input_page_reuseable_card.dart';
 import 'input_page.dart';
 import 'bottom__button.dart';
+import 'input_page_reuseable_card.dart';
 
 class ResultPage extends StatelessWidget {
   final String bmiResult;
@@ -27,14 +26,14 @@ class ResultPage extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Text(
                 'Your Result',
-                style: ktitleTextStyle,
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
             ),
           ),
           Expanded(
             flex: 5,
             child: ReuseableCard(
-              kactiveCardColour,
+                Theme.of(context).colorScheme.surface,
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.center,

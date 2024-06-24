@@ -1,16 +1,17 @@
 import 'dart:io';
 
 import 'package:card_swiper/card_swiper.dart';
+import 'package:execise_app/shopping_section/screens/person_screen.dart';
+import 'package:execise_app/shopping_section/screens/shopping_cart_sceeen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store/models/discount_model.dart';
-import 'package:store/providers/product_provider.dart';
-import 'package:store/screens/all_product_screen.dart';
-import 'package:store/screens/person_screen.dart';
-import 'package:store/screens/shopping_cart_sceeen.dart';
+
+import '../models/discount_model.dart';
+import '../providers/product_provider.dart';
 import '../widgets/popular_item.dart';
 import '../widgets/sale_slide_card.dart';
 import '../widgets/shimmer_layout.dart';
+import 'all_product_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -251,14 +252,12 @@ class _MyHomeScreenState extends State<MyHomeScreen> {
                               physics: const BouncingScrollPhysics(),
                               itemBuilder: (BuildContext ctxt, int index) {
                                 return PopularItem(
-                                  imageUrl: productData[index]['category']
-                                      ['image'],
-                                  productTitle: productData[index]['title'],
-                                  productCatagory: productData[index]
-                                      ['category']['name'],
-                                  productPrice: productData[index]['price'],
-                                  description: productData[index]
-                                      ['description'],
+                                  imageUrl:"assets/images/shopping_images/dumble2.jpg" ,
+                                  productTitle:"Dumbles",
+                                  productCatagory:
+                                      "Equipments",
+                                  productPrice: 345,
+                                  description: "Use full in jym and other Enviroments you can use it in externel or internel envierometns",
                                 );
                               }),
                         ),

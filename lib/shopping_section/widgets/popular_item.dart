@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:store/providers/product_provider.dart';
-import 'package:store/screens/single_product_description_screen.dart';
 
+
+import '../providers/product_provider.dart';
+import '../screens/single_product_description_screen.dart';
 import 'custom_snackbar_layout.dart';
 
 class PopularItem extends StatelessWidget {
@@ -60,8 +61,8 @@ class PopularItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 7),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: Image(
-                    image: NetworkImage(imageUrl),
+                  child: Image.asset(
+                  imageUrl,
                     fit: BoxFit.fill,
                   ),
                 ),
